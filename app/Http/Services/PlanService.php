@@ -6,6 +6,7 @@ use App\Http\Resources\PlanResource;
 use App\Http\Resources\ResourceCollection;
 use App\Models\Plan;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Log;
 
 class PlanService
 {
@@ -40,6 +41,8 @@ class PlanService
 
     public function update($request, $plan)
     {
+        Log::info($request);
+
         $plan->update($request->validated());
 
         return success_response(

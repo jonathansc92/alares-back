@@ -19,7 +19,6 @@ class Plan extends Model
         'games',
         'movies',
         'speed',
-        'mega',
         'giga',
         'best',
     ];

@@ -14,13 +14,12 @@ return new class extends Migration
         Schema::create('plans', function (Blueprint $table) {
             $table->id();
             $table->float('price')->default(0.00);
-            $table->boolean('wifi')->default(false);
-            $table->boolean('games')->default(false);
-            $table->boolean('movies')->default(false);
+            $table->enum('wifi', ['sim', 'não'])->default('sim');
+            $table->enum('games', ['sim', 'não'])->default('não');
+            $table->enum('movies', ['sim', 'não'])->default('não');
+            $table->enum('best', ['sim', 'não'])->default('não');
+            $table->enum('giga', ['sim', 'não'])->default('não');
             $table->float('speed');
-            $table->boolean('best')->default(false);
-            $table->boolean('giga')->default(false);
-            $table->boolean('mega')->default(false);
             $table->timestamps();
         });
     }

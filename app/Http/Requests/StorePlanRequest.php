@@ -2,10 +2,12 @@
 
 namespace App\Http\Requests;
 
+use App\Enums\HasEnum;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Http\Response;
+use Illuminate\Validation\Rules\Enum;
 
 class StorePlanRequest extends FormRequest
 {
@@ -13,11 +15,12 @@ class StorePlanRequest extends FormRequest
     {
         return [
             'price' => ['numeric', 'min:1', 'required'],
-            'wifi' => ['boolean'],
-            'games' => ['boolean'],
-            'movies' => ['boolean'],
+            'wifi' => [new Enum(HasEnum::class)],
+            'games' => [new Enum(HasEnum::class)],
+            'movies' => [new Enum(HasEnum::class)],
             'speed' => ['numeric', 'min:1', 'required'],
-            'best' => ['boolean'],
+            'best' => [new Enum(HasEnum::class)],
+            'giga' => [new Enum(HasEnum::class)],
         ];
     }
 
