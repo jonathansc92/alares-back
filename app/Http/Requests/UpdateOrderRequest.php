@@ -2,10 +2,12 @@
 
 namespace App\Http\Requests;
 
+use App\Enums\OrderStatusEnum;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Http\Response;
+use Illuminate\Validation\Rules\Enum;
 
 class UpdateOrderRequest extends FormRequest
 {
@@ -16,7 +18,7 @@ class UpdateOrderRequest extends FormRequest
             'name' => ['max:100', 'sometimes'],
             'email' => ['max:100', 'email', 'sometimes'],
             'phone' => ['max:20', 'sometimes'],
-            'status' => ['boolean'],
+            'status' => [new Enum(OrderStatusEnum::class)],
         ];
     }
 

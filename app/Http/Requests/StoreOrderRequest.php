@@ -2,10 +2,12 @@
 
 namespace App\Http\Requests;
 
+use App\Enums\OrderStatusEnum;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Http\Response;
+use Illuminate\Validation\Rules\Enum;
 
 class StoreOrderRequest extends FormRequest
 {
@@ -16,7 +18,7 @@ class StoreOrderRequest extends FormRequest
             'name' => ['max:100', 'required'],
             'email' => ['max:100', 'email', 'required'],
             'phone' => ['max:20', 'required'],
-            'status' => ['boolean'],
+            'status' => [new Enum(OrderStatusEnum::class)],
         ];
     }
 

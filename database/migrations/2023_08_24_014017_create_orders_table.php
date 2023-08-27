@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('name', 100);
             $table->string('email', 100);
             $table->string('phone', 20);
-            $table->boolean('status')->default(false);
+            $table->enum('status', ['in progress', 'done'])->default('in progress');
             $table->timestamps();
         });
     }
