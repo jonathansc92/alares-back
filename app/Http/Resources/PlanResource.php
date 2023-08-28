@@ -22,6 +22,7 @@ class PlanResource extends JsonResource
             'movies' => $this->movies,
             'speed' => $this->speed,
             'best' => $this->best,
+            'giga' => $this->giga,
         ];
     }
 }
