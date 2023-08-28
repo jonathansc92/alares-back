@@ -9,6 +9,9 @@ O principal objetivo deste projeto é criar um API em Laravel, que possibilita.
 - Cadastro de planos,
 - Cadastro de pedidos.
 
+# O que faria se tivesse mais tempo?
+- Adicionaria mensagerias ao salvar os pedidos.
+
 # Padrões adotados
 Para criação da API foi adotado alguns padrões e conceitos para melhor legibilidade e manutenção do projeto, como:
 SOLID
